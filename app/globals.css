@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* Font Variables */
+@theme {
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-heading: var(--font-roboto), system-ui, sans-serif;
+  
+  /* Colors */
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-primary: #ff5e00;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #262626;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #404040;
+  --color-muted-foreground: #a3a3a3;
+  --color-accent: #ff5e00;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #333333;
+  --color-input: #333333;
+  --color-ring: #ff5e00;
+  
+  /* Custom Shadows */
+  --shadow-lifted: 0 4px 6px -1px rgb(255 255 255 / 0.05), 0 2px 4px -1px rgb(255 255 255 / 0.03), 0 10px 25px -5px rgb(255 255 255 / 0.08);
+  --shadow-lifted-lg: 0 10px 15px -3px rgb(255 255 255 / 0.08), 0 4px 6px -2px rgb(255 255 255 / 0.05), 0 20px 40px -10px rgb(255 255 255 / 0.12);
+  --shadow-lifted-xl: 0 20px 25px -5px rgb(255 255 255 / 0.1), 0 10px 10px -5px rgb(255 255 255 / 0.08), 0 30px 60px -15px rgb(255 255 255 / 0.15);
+  --shadow-orange: 0 4px 20px rgb(255 94 0 / 0.2), 0 0 40px rgb(255 94 0 / 0.1);
+  --shadow-orange-lg: 0 10px 40px rgb(255 94 0 / 0.3), 0 0 60px rgb(255 94 0 / 0.15);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Shadow utilities */
+.shadow-lifted {
+  box-shadow: var(--shadow-lifted);
+}
+
+.shadow-lifted-lg {
+  box-shadow: var(--shadow-lifted-lg);
+}
+
+.shadow-lifted-xl {
+  box-shadow: var(--shadow-lifted-xl);
+}
+
+.shadow-orange {
+  box-shadow: var(--shadow-orange);
+}
+
+.shadow-orange-lg {
+  box-shadow: var(--shadow-orange-lg);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Prevent animation jank */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 30s;
+  }
+}
